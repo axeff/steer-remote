@@ -2,14 +2,18 @@
 var WebSocketServer = require('websocket').server;
 var http = require('http');
 var uuid = require('node-uuid');
+var fs = require('fs');
+var httpConnect = require('connect'),
+    httpPort = 8080,
+    socketPort = 1337;
 
 var server = http.createServer(function(request, response) {
     console.log((new Date()) + ' Received request for ' + request.url);
     response.writeHead(404);
     response.end();
 });
-server.listen(1337, function() {
-    console.log((new Date()) + ' Server is listening on port 1337');
+server.listen(socketPort, function() {
+    console.log((new Date()) + ' Server is listening on port ' + socketPort);
 });
 
 wsServer = new WebSocketServer({
@@ -52,7 +56,7 @@ wsServer.on('request', function(request) {
             connection.sendUTF(JSON.stringify({connectionId:connection.id}));
         }
         //process actual commands
-        else if(command.receiverId){
+        else if(command.receiverId && command.receiverId in connections){
             console.log("sending data to: " + command.receiverId);
             connections[command.receiverId].sendUTF(JSON.stringify({origin:connection.id,message:command.message}));
         }
@@ -64,3 +68,8 @@ wsServer.on('request', function(request) {
         console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');
     });
 });
+
+
+httpConnect.createServer(httpConnect.static(__dirname)).listen(httpPort);
+console.log('Http Listening on ' + httpPort + '...');
+console.log('Press Ctrl + C to stop.');
