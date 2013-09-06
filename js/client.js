@@ -1,13 +1,13 @@
 // if user is running mozilla then use it's built-in WebSocket
 window.WebSocket = window.WebSocket || window.MozWebSocket;
 
-var connection = new WebSocket('ws://localhost:1337/',['peer-protocol']);
+var connection = new WebSocket('ws://' + host + ':' + port + '/',['peer-protocol']);
 
 $(function () {
 
     connection.onopen = function () {
         // connection is opened and ready to use
-        alert("connection is opened and ready to use");
+        console.log("connection is opened and ready to use");
         
         // establish connection with 
         connection.send(JSON.stringify({register:true}))
@@ -15,7 +15,7 @@ $(function () {
 
     connection.onerror = function (error) {
         // an error occurred when sending/receiving data
-        alert("an error occurred when sending/receiving data",error);
+        console.log("an error occurred when sending/receiving data",error);
     };
 
     connection.onmessage = function (message) {
@@ -23,10 +23,10 @@ $(function () {
         try {
             var json = JSON.parse(message.data);
         } catch (e) {
-            alert('This doesn\'t look like a valid JSON: ', message.data);
+            console.log('This doesn\'t look like a valid JSON: ', message.data);
             return;
         }
         // handle incoming message
-        alert(json);
+        console.log(json);
     };
 });

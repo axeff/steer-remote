@@ -1,13 +1,14 @@
 <html>
 <head>
 <script type="text/javascript" src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="./client.js"></script>
-<script type="text/javascript" src="./mobile.js"></script>
+<script type="text/javascript" src="./js/local.js"></script>
+<script type="text/javascript" src="./js/client.js"></script>
+<script type="text/javascript" src="./js/mobile.js"></script>
 </head>
 <body>
 <div id="debug">
     
 </div>
-<a href="#" id="debuglink">clicktosend</a>
+<a href="#" id="disconnect" onclick="connection.close();return false;">Disconnect</a> 
 </body>
 </html>

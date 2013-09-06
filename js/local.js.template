@@ -1,0 +1,15 @@
+/* 
+* make a copy of this file and name it local.js.
+* don't add it into version control, since it's for local adjustments
+*/
+
+/* interval for sending motion to socket */
+var sendInterval = 100;
+
+/* host-address */
+var host = '192.168.179.215';
+
+/* UUID of Client
+*  for debugging purposes only
+*/
+var uuidHandshake = 'bf8d614e-7538-4ad2-b9ea-9bfa16bbb4c9';
