@@ -57,7 +57,6 @@ wsServer.on('request', function(request) {
         }
         //process actual commands
         else if(command.receiverId && command.receiverId in connections){
-            console.log("sending data to: " + command.receiverId);
             connections[command.receiverId].sendUTF(JSON.stringify({origin:connection.id,message:command.message}));
         }
         

@@ -25,12 +25,12 @@ $(function () {
                 'x: ' + json.message.x + '<br/>' +
                 'y: ' + json.message.y + '<br/>' +
                 'z: ' + json.message.z);
-                $('#phone').css({
-                    '-webkit-transform': 'rotate(' + json.message.y * -5 + 'deg)',
-                    '-moz-transform': 'rotate(' + json.message.y * -5 + 'deg)', 
-                    '-o-transform': 'rotate(' + json.message.y * -5 + 'deg)', 
-                    '-ms-transform': 'rotate(' + json.message.y * -5 + 'deg)', 
-                    'transform': 'rotate(' + json.message.y * -5 + 'deg)'
+                $('#wheel').css({
+                    '-webkit-transform': 'rotate(' + json.message.y * -1 * multiplier + 'deg)',
+                    '-moz-transform': 'rotate(' + json.message.y * -1 * multiplier + 'deg)', 
+                    '-o-transform': 'rotate(' + json.message.y * -1 * multiplier + 'deg)', 
+                    '-ms-transform': 'rotate(' + json.message.y * -1 * multiplier + 'deg)', 
+                    'transform': 'rotate(' + json.message.y * -1 * multiplier + 'deg)'
                 });
         }
     };
