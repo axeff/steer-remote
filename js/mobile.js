@@ -1,5 +1,6 @@
-var interval = sendInterval;
-var acceleration;
+var interval = sendInterval,
+    acceleration;
+
 window.ondevicemotion = function(event) {
     acceleration = {
 	    x: event.accelerationIncludingGravity.x,

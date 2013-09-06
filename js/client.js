@@ -17,6 +17,9 @@ $(function () {
                 'x: ' + json.message.x + '<br/>' +
                 'y: ' + json.message.y + '<br/>' +
                 'z: ' + json.message.z);
+            $('#phone').css({
+                'webkitTransform': 'rotate(' + json.message.y * -5 + 'deg)'
+            });
         }
     };
 });
