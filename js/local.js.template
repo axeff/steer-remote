@@ -6,8 +6,11 @@
 /* interval for sending motion to socket */
 var sendInterval = 100;
 
-/* host-address */
+/* web-socket address */
 var host = '192.168.179.215';
+
+/* web-socket port */
+var port = '1337';
 
 /* UUID of Client
 *  for debugging purposes only
