@@ -3,6 +3,7 @@
 <script type="text/javascript" src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="./js/local.js"></script>
 <script type="text/javascript" src="./js/websocket.js"></script>
+<script type="text/javascript" src="./js/qrcode.js"></script>
 <script type="text/javascript" src="./js/client.js"></script>
 <style>
     #world {
@@ -19,11 +20,29 @@
         border-radius: 10px;
         -webkit-transform:rotate(0deg);
     }
+    #qrdiv {
+        position: absolute;
+        z-index: 1;
+        width: 400px;
+        height: 400px;
+        display: none;
+        left: 0;
+        top: 0
+    }
+    canvas {
+        width: 200%;
+        height: 100%;
+    }
 </style>
 </head>
 <body>
+    <div id="qrdiv">
+
+        <canvas id="qrcanv"}>No Canvas Support?
+    </div>
 <p>connectionId:</p>
 <p id="uuid"></p>
+<button id="showqr">show QR Code</button>
 <div id="debug">
 
 </div>
